@@ -192,6 +192,9 @@ typedef union {
     uint32_t pressure_resolution : 2;
     uint32_t humidity_resolution : 2;
     uint32_t temperature_resolution : 2;
+    uint32_t co_resolution : 3;
+    uint32_t lpg_resolution : 3;
+    uint32_t smoke_resolution : 3;
   };
 } SysBitfield2;
 

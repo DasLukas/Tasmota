@@ -68,6 +68,7 @@
 #define D_CELSIUS "Celsius"
 #define D_CHANNEL "Kanal"
 #define D_CO2 "CO₂"
+// #define D_CO2 "CO"
 #define D_CODE "code"                // Button code
 #define D_COLDLIGHT "kalt"
 #define D_COMMAND "Befehl"

@@ -1154,6 +1154,18 @@ int ResponseAppendTHD(float f_temperature, float f_humidity)
   return ResponseAppend_P(PSTR("\"" D_JSON_TEMPERATURE "\":%s,\"" D_JSON_HUMIDITY "\":%s,\"" D_JSON_DEWPOINT "\":%s"), temperature, humidity, dewpoint);
 }
 
+int ResponseAppendCLS(float f_co, float f_lpg, float f_smoke)
+{
+  char co[FLOATSZ];
+  dtostrfd(f_co, Settings.flag2.co_resolution, co);
+  char lpg[FLOATSZ];
+  dtostrfd(f_lpg, Settings.flag2.lpg_resolution, lpg);
+  char smoke[FLOATSZ];
+  dtostrfd(f_smoke, Settings.flag2.smoke_resolution, smoke);
+
+  return ResponseAppend_P(PSTR("\"" D_JSON_CO "\":%s,\"" D_JSON_LPG "\":%s,\"" D_JSON_SMOKE "\":%s"), co, lpg, smoke);
+}
+
 int ResponseJsonEnd(void)
 {
   return ResponseAppend_P(PSTR("}"));

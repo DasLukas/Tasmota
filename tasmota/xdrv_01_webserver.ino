@@ -1248,6 +1248,17 @@ void WSContentSend_THD(const char *types, float f_temperature, float f_humidity)
   WSContentSend_PD(HTTP_SNS_DEW, types, parameter, TempUnit());
 }
 
+void WSContentSend_CLS(const char *types, float f_co, float f_lpg, float f_smoke)
+{
+  char parameter[FLOATSZ];
+  dtostrfd(f_co, Settings.flag2.co_resolution, parameter);
+  WSContentSend_PD(HTTP_SNS_CO2, types, parameter);
+  dtostrfd(f_lpg, Settings.flag2.lpg_resolution, parameter);
+  WSContentSend_PD(HTTP_SNS_CO2, types, parameter);
+  dtostrfd(f_smoke, Settings.flag2.smoke_resolution, parameter);
+  WSContentSend_PD(HTTP_SNS_CO2, types, parameter);
+}
+
 void WSContentEnd(void)
 {
   WSContentFlush();                                // Flush chunk buffer
