@@ -739,12 +739,12 @@ void TempHumDewShow(bool json, bool pass_on, const char *types, float f_temperat
   }
 }
 
-void CoLpgSmokeShow(bool json, bool pass_on, const char *types, float f_co, float f_lpg, float f_smoke)
-{
-  if (json) {
-    ResponseAppend_P(PSTR(",\"%s\":{"), types);
-    ResponseAppendCLS(f_co, f_lpg, f_smoke);
-    ResponseJsonEnd();
+// void CoLpgSmokeShow(bool json, bool pass_on, const char *types, float f_co, float f_lpg, float f_smoke)
+// {
+//  if (json) {
+//    ResponseAppend_P(PSTR(",\"%s\":{"), types);
+//    ResponseAppendCLS(f_co, f_lpg, f_smoke);
+//    ResponseJsonEnd();
 // no implemantation for DOMOTICZ and KNZ yet!
 // #ifdef USE_DOMOTICZ
 //     if (pass_on) {
@@ -757,12 +757,12 @@ void CoLpgSmokeShow(bool json, bool pass_on, const char *types, float f_co, floa
 //       KnxSensor(KNX_HUMIDITY, f_humidity);
 //     }
 // #endif  // USE_KNX
-#ifdef USE_WEBSERVER
-  } else {
-    WSContentSend_CLS(types, f_co, f_lpg, f_smoke);
-#endif  // USE_WEBSERVER
-  }
-}
+// #ifdef USE_WEBSERVER
+//  } else {
+//    WSContentSend_CLS(types, f_co, f_lpg, f_smoke);
+// #endif  // USE_WEBSERVER
+//  }
+// }
 
 String GetSwitchText(uint32_t i) {
   String switch_text = SettingsText(SET_SWITCH_TXT1 + i);

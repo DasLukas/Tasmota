@@ -106,10 +106,10 @@ void Mq2Show(bool json)
     }
 }
 
-boolean Xsns81(byte callback_id) {
+bool Xsns81(uint8_t callback_id) {
 
   // Set return value to `false`
-  boolean result = false;
+  bool result = false;
 
   // Check which callback ID is called by Tasmota
   switch (callback_id) {
